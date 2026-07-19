@@ -30,7 +30,6 @@ export default function Navbar() {
             <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between rounded-2xl bg-[#262626] px-5 shadow-lg">
 
-                    {/* Logo */}
                     <Link href="/" className="flex items-center">
                         <Image
                             src="/images/logo.png"
@@ -42,7 +41,6 @@ export default function Navbar() {
                         />
                     </Link>
 
-                    {/* Desktop Navigation */}
                     <div className="hidden items-center gap-10 lg:flex">
                         {navItems.map((item) => (
                             <Link
@@ -55,10 +53,9 @@ export default function Navbar() {
                         ))}
                     </div>
 
-                    {/* Right Side */}
                     <div className="hidden items-center gap-5 lg:flex">
                         <Link
-                            href="/login"
+                            href="/signin"
                             className="font-medium text-indigo-400 transition hover:text-indigo-300"
                         >
                             Sign In
@@ -66,7 +63,7 @@ export default function Navbar() {
 
                         <Button
                             as={Link}
-                            href="/register"
+                            href="/signup"
                             radius="lg"
                             color="primary"
                             className="bg-linear-to-r from-indigo-500 to-violet-600 px-6 font-semibold text-white shadow-lg"
@@ -75,7 +72,6 @@ export default function Navbar() {
                         </Button>
                     </div>
 
-                    {/* Mobile Button */}
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
                         className="text-white lg:hidden"
@@ -88,7 +84,6 @@ export default function Navbar() {
                     </button>
                 </div>
 
-                {/* Mobile Menu */}
                 {menuOpen && (
                     <div className="mt-3 rounded-2xl bg-[#262626] p-5 lg:hidden">
                         <div className="flex flex-col gap-5">
@@ -105,7 +100,7 @@ export default function Navbar() {
 
                             <div className="mt-3 border-t border-gray-700 pt-4">
                                 <Link
-                                    href="/login"
+                                    href="/signin"
                                     className="block font-medium text-indigo-400"
                                     onClick={() => setMenuOpen(false)}
                                 >
@@ -114,7 +109,7 @@ export default function Navbar() {
 
                                 <Button
                                     as={Link}
-                                    href="/register"
+                                    href="/signup"
                                     color="primary"
                                     radius="lg"
                                     className="mt-4 w-full bg-linear-to-r from-indigo-500 to-violet-600 text-white"
