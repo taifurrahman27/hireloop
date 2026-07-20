@@ -5,25 +5,36 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@heroui/react";
 import { HiBars3, HiXMark } from "react-icons/hi2";
+import { signOut } from "better-auth/api";
+import { authClient } from "@/lib/auth-client";
 
 
-const navItems = [
-    {
-        name: "Browse Jobs",
-        href: "/jobs",
-    },
-    {
-        name: "Companies",
-        href: "/companies",
-    },
-    {
-        name: "Pricing",
-        href: "/pricing",
-    },
-];
+
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
+
+    const {
+        data: session,
+        isPending,
+    } = authClient.useSession();
+    const user = session?.user;
+
+
+    const navItems = [
+        {
+            name: "Browse Jobs",
+            href: "/jobs",
+        },
+        {
+            name: "Companies",
+            href: "/companies",
+        },
+        {
+            name: "Pricing",
+            href: "/pricing",
+        },
+    ];
 
     return (
         <nav className="sticky top-0 z-50 bg-[#1f1f1f]/95 backdrop-blur-lg">
@@ -54,12 +65,20 @@ export default function Navbar() {
                     </div>
 
                     <div className="hidden items-center gap-5 lg:flex">
-                        <Link
-                            href="/signin"
-                            className="font-medium text-indigo-400 transition hover:text-indigo-300"
-                        >
-                            Sign In
-                        </Link>
+                        {
+                            user ?
+                                <>
+                                    Hi, {user.name}!
+                                    <Button onClick={async () => await authClient.signOut()}
+                                        variant="ghost">Sign Out</Button>
+                                </>
+                                :
+                                <Link
+                                    href="/signin"
+                                    className="text-sm font-medium text-violet-400 transition hover:text-violet-300"
+                                >
+                                    Sign In
+                                </Link>}
 
                         <Button
                             as={Link}
@@ -125,3 +144,5 @@ export default function Navbar() {
         </nav>
     );
 }
+
+
