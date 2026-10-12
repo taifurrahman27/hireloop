@@ -1,3 +1,4 @@
+import HowItWork from "@/components/home/HowItWork";
 import StatsSection from "@/components/StatsSection";
 import Image from "next/image";
 
@@ -9,6 +10,7 @@ export default function Home() {
           <h1>Hireloop project homepage</h1>
 
           <StatsSection />
+          <HowItWork/>
 
         </div>
       </main>
