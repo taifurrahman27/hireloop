@@ -14,28 +14,28 @@ const steps = [
         icon: FiUserPlus,
         title: 'Add your application',
         description:
-            'Enter the recruiter’s name, email, company, and the role you applied for. Keep your job applications organized in one place.',
+            'Save the recruiter’s name, email, company, and the role you applied for. Keep your job applications organized in one place.',
     },
     {
         number: '02',
         icon: FiMail,
         title: 'Choose your template and schedule',
         description:
-            'Choose a professional follow-up template or write your own message. Set a follow-up schedule that works for you.',
+            'Prepare a professional follow-up message using a reusable template, then decide when you want to follow up.',
     },
     {
         number: '03',
         icon: FiClock,
         title: 'Follow up at the right time',
         description:
-            'Stay on top of your applications with timely follow-up reminders, helping you reconnect with recruiters without losing track of your next steps.',
+            'Use your follow-up schedule and reminders to reconnect with recruiters without losing track of your next steps.',
     },
     {
         number: '04',
         icon: FiPauseCircle,
         title: 'Track, pause, or stop anytime',
         description:
-            'Record recruiter responses, update application statuses, and pause or stop follow-ups whenever your situation changes. You stay in control.',
+            'Record recruiter responses, update application statuses, and adjust your follow-up plan whenever things change.',
     },
 ];
 
@@ -43,51 +43,59 @@ export default function HowItWork() {
     return (
         <section
             id="how-it-works"
-            className="bg-white px-6 py-20 sm:px-10 lg:px-8 lg:py-24"
+            className="relative isolate overflow-hidden bg-black py-24 text-white sm:py-28"
         >
-            <div className="mx-auto max-w-7xl">
-                {/* Section heading */}
-                <div className="mx-auto max-w-2xl text-center">
-                    <span className="text-sm font-semibold uppercase tracking-widest text-indigo-600">
+            {/* Background glow */}
+            <div className="pointer-events-none absolute left-0 top-1/4 -z-10 h-96 w-96 rounded-full bg-violet-600/15 blur-[140px]" />
+            <div className="pointer-events-none absolute bottom-0 right-0 -z-10 h-80 w-80 rounded-full bg-violet-500/10 blur-[120px]" />
+
+            <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10 lg:px-8">
+                {/* Heading */}
+                <div className="mx-auto max-w-3xl text-center">
+                    <span className="inline-flex rounded-full border border-violet-400/20 bg-violet-500/10 px-4 py-2 text-sm font-medium text-violet-300">
                         How It Works
                     </span>
 
-                    <h2 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                        Set it up once. Keep your job search moving.
+                    <h2 className="mt-6 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+                        Your job search,
+                        <span className="block text-white/60">
+                            organized from start to follow-up.
+                        </span>
                     </h2>
 
-                    <p className="mt-5 text-lg leading-8 text-gray-600">
-                        HireLoop helps you organize applications, follow up professionally,
-                        and manage recruiter conversations so you can focus on finding your
-                        next opportunity.
+                    <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg">
+                        Four simple steps to manage applications, prepare thoughtful
+                        follow-ups, and keep every opportunity on your radar.
                     </p>
                 </div>
 
                 {/* Steps */}
-                <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
                     {steps.map((step) => {
                         const Icon = step.icon;
 
                         return (
                             <article
                                 key={step.number}
-                                className="group rounded-2xl border border-gray-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-indigo-200 hover:shadow-xl hover:shadow-indigo-900/5"
+                                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-7 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-violet-500/30 hover:bg-white/[0.05] sm:p-8"
                             >
-                                <div className="flex items-center justify-between">
-                                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 transition-colors group-hover:bg-indigo-600 group-hover:text-white">
+                                <div className="pointer-events-none absolute -bottom-12 -right-12 h-32 w-32 rounded-full bg-white/5 blur-3xl transition duration-300 group-hover:bg-violet-500/20" />
+
+                                <div className="relative z-10 flex items-center justify-between">
+                                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-violet-400/20 bg-violet-500/10 text-violet-300 transition duration-300 group-hover:border-violet-400/40 group-hover:bg-violet-500/20">
                                         <Icon className="h-6 w-6" />
                                     </div>
 
-                                    <span className="text-3xl font-bold text-gray-200">
+                                    <span className="text-3xl font-semibold tracking-tight text-white/20">
                                         {step.number}
                                     </span>
                                 </div>
 
-                                <h3 className="mt-6 text-lg font-bold text-gray-900">
+                                <h3 className="relative z-10 mt-7 text-xl font-semibold text-white">
                                     {step.title}
                                 </h3>
 
-                                <p className="mt-3 text-sm leading-7 text-gray-600">
+                                <p className="relative z-10 mt-4 text-sm leading-7 text-gray-400">
                                     {step.description}
                                 </p>
                             </article>
@@ -99,14 +107,14 @@ export default function HowItWork() {
                 <div className="mt-12 text-center">
                     <Link
                         href="/signup"
-                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 py-3.5 font-semibold text-white transition hover:bg-indigo-700"
+                        className="inline-flex items-center justify-center gap-2 rounded-xl border border-violet-400/30 bg-violet-600 px-6 py-3.5 font-semibold text-white transition hover:border-violet-300/50 hover:bg-violet-500"
                     >
                         Get started with HireLoop
                         <FiArrowRight className="h-5 w-5" />
                     </Link>
 
-                    <p className="mt-3 text-sm text-gray-500">
-                        Stay organized. Follow up confidently. Move forward.
+                    <p className="mt-4 text-sm text-gray-500">
+                        Your applications. Your schedule. Your next opportunity.
                     </p>
                 </div>
             </div>

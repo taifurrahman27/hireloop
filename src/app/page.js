@@ -8,7 +8,6 @@ export default function Home() {
     <div className="">
       <main className="">
         <div>
-          <h1>Hireloop project homepage</h1>
 
           <StatsSection />
           <Features/>

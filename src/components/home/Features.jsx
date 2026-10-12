@@ -12,43 +12,37 @@ const features = [
         icon: FiMail,
         title: 'Automated Follow-Up Reminders',
         description:
-            'Never lose track of an application. Set follow-up dates and let HireLoop remind you when it is time to reconnect with a recruiter.',
-        color: 'bg-blue-50 text-blue-600',
+            'Stay on top of every application with timely reminders that help you reconnect with recruiters and keep your job search moving.',
     },
     {
         icon: FiFileText,
         title: 'Professional Email Templates',
         description:
-            'Write better follow-up messages with reusable templates. Personalize each email to match your experience, communication style, and target role.',
-        color: 'bg-purple-50 text-purple-600',
+            'Create polished follow-up messages with reusable templates you can personalize for each recruiter, company, and role.',
     },
     {
         icon: FiBarChart2,
         title: 'Application Dashboard',
         description:
-            'Manage your job search from one place. Track application statuses, review your follow-up history, and see which opportunities need attention.',
-        color: 'bg-emerald-50 text-emerald-600',
+            'Bring your applications together in one workspace. Track statuses, review follow-up history, and identify what needs attention.',
     },
     {
         icon: FiPauseCircle,
         title: 'Flexible Follow-Up Management',
         description:
-            'Received a response or secured an interview? Update your application and adjust your follow-up plan whenever your circumstances change.',
-        color: 'bg-orange-50 text-orange-600',
+            'Received a response or landed an interview? Update your application and adjust your follow-up plan as your situation changes.',
     },
     {
         icon: FiClock,
         title: 'Timely Follow-Up Scheduling',
         description:
-            'Plan follow-ups at appropriate intervals instead of guessing when to reach out. Keep your recruiter communication timely and professional.',
-        color: 'bg-pink-50 text-pink-600',
+            'Plan when to reach out with a clear follow-up schedule instead of guessing. Keep recruiter communication consistent and professional.',
     },
     {
         icon: FiShield,
         title: 'You Stay in Control',
         description:
-            'Choose how and when you follow up. Review your messages, manage reminders, and keep your job search aligned with your own preferences.',
-        color: 'bg-indigo-50 text-indigo-600',
+            'Manage your reminders, review your messages, and choose your follow-up pace. Your job search stays on your terms.',
     },
 ];
 
@@ -56,47 +50,54 @@ export default function Features() {
     return (
         <section
             id="features"
-            className="bg-gray-50 px-6 py-20 sm:px-10 lg:px-8 lg:py-24"
+            className="relative isolate overflow-hidden bg-black py-24 text-white sm:py-28"
         >
-            <div className="mx-auto max-w-7xl">
-                {/* Section heading */}
-                <div className="mx-auto max-w-2xl text-center">
-                    <span className="text-sm font-semibold uppercase tracking-widest text-indigo-600">
+            {/* Background glow */}
+            <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-96 w-96 -translate-x-1/2 rounded-full bg-violet-600/20 blur-[140px]" />
+            <div className="pointer-events-none absolute bottom-0 right-0 -z-10 h-80 w-80 rounded-full bg-violet-500/10 blur-[120px]" />
+
+            <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10 lg:px-8">
+                {/* Heading */}
+                <div className="mx-auto max-w-3xl text-center">
+                    <span className="inline-flex rounded-full border border-violet-400/20 bg-violet-500/10 px-4 py-2 text-sm font-medium text-violet-300">
                         Features
                     </span>
 
-                    <h2 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                        Everything you need for a more organized job search.
+                    <h2 className="mt-6 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+                        Everything you need.
+                        <span className="block text-white/60">
+                            A smarter way to job search.
+                        </span>
                     </h2>
 
-                    <p className="mt-5 text-lg leading-8 text-gray-600">
-                        From tracking applications to planning recruiter follow-ups,
-                        HireLoop brings your job search essentials together in one simple
-                        workspace.
+                    <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg">
+                        HireLoop helps you organize applications, plan recruiter follow-ups,
+                        and manage your job search in one place — so you can focus on your
+                        next opportunity.
                     </p>
                 </div>
 
                 {/* Feature cards */}
-                <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                     {features.map((feature) => {
                         const Icon = feature.icon;
 
                         return (
                             <article
                                 key={feature.title}
-                                className="group rounded-2xl border border-gray-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-indigo-200 hover:shadow-xl hover:shadow-indigo-900/5"
+                                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/3 p-7 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-violet-500/30 hover:bg-white/5 sm:p-8"
                             >
-                                <div
-                                    className={`flex h-14 w-14 items-center justify-center rounded-2xl ${feature.color} transition-transform duration-300 group-hover:scale-105`}
-                                >
-                                    <Icon className="h-7 w-7" />
+                                <div className="pointer-events-none absolute -bottom-12 -right-12 h-36 w-36 rounded-full bg-white/5 blur-3xl transition duration-300 group-hover:bg-violet-500/20" />
+
+                                <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl border border-violet-400/20 bg-violet-500/10 text-violet-300 transition duration-300 group-hover:border-violet-400/40 group-hover:bg-violet-500/20">
+                                    <Icon className="h-6 w-6" />
                                 </div>
 
-                                <h3 className="mt-6 text-xl font-bold text-gray-900">
+                                <h3 className="relative z-10 mt-7 text-xl font-semibold text-white">
                                     {feature.title}
                                 </h3>
 
-                                <p className="mt-3 text-sm leading-7 text-gray-600">
+                                <p className="relative z-10 mt-4 text-sm leading-7 text-gray-400 sm:text-base">
                                     {feature.description}
                                 </p>
                             </article>
